@@ -1,15 +1,16 @@
 "use client";
 
-import { Github, Linkedin, Twitter, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
+import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/ui/SocialIcons";
 import { portfolio } from "@/config/portfolio";
 import { isValidUrl } from "@/lib/utils";
 
 // ─── Footer Component ────────────────────────────────────────────────────────
 
 const socialIcons: Record<string, React.ComponentType<{ className?: string }>> = {
-  github: Github,
-  linkedin: Linkedin,
-  twitter: Twitter,
+  github: GithubIcon,
+  linkedin: LinkedinIcon,
+  twitter: TwitterIcon,
 };
 
 export default function Footer() {

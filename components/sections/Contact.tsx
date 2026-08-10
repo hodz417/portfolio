@@ -1,6 +1,7 @@
 "use client";
 
-import { Mail, Github, Linkedin, MessageCircle, MapPin } from "lucide-react";
+import { Mail, MessageCircle, MapPin } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 import { portfolio } from "@/config/portfolio";
 import SectionHeader from "@/components/ui/SectionHeader";
 import ContactForm from "@/components/ui/ContactForm";
@@ -31,7 +32,7 @@ export default function Contact() {
     ...(isValidUrl(portfolio.social.github)
       ? [
           {
-            icon: Github,
+            icon: GithubIcon,
             label: "GitHub",
             value: portfolio.github.username || "GitHub",
             href: portfolio.social.github,
@@ -41,7 +42,7 @@ export default function Contact() {
     ...(isValidUrl(portfolio.social.linkedin)
       ? [
           {
-            icon: Linkedin,
+            icon: LinkedinIcon,
             label: "LinkedIn",
             value: "LinkedIn Profile",
             href: portfolio.social.linkedin,
