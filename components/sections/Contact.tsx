@@ -6,6 +6,7 @@ import { portfolio } from "@/config/portfolio";
 import SectionHeader from "@/components/ui/SectionHeader";
 import ContactForm from "@/components/ui/ContactForm";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import Button from "@/components/ui/Button";
 import { isValidUrl } from "@/lib/utils";
 
 // ─── Contact Section ─────────────────────────────────────────────────────────
@@ -80,7 +81,7 @@ export default function Contact() {
                   Feel free to reach out through any of the following channels.
                 </p>
 
-                <div className="space-y-4">
+                <div className="flex flex-col gap-4">
                   {contactLinks.map((link) => (
                     <a
                       key={link.label}
@@ -129,13 +130,14 @@ export default function Contact() {
                     Prefer email? Send me a message and I&apos;ll get back to you
                     as soon as possible.
                   </p>
-                  <a
+                  <Button
                     href={`mailto:${portfolio.personal.email}`}
-                    className="inline-flex items-center gap-2 rounded-[var(--radius-md)] bg-primary px-6 py-3 text-sm font-medium text-white transition-all duration-[var(--transition-fast)] hover:bg-primary-hover hover:shadow-[0_0_20px_rgba(124,77,255,0.25)]"
+                    variant="primary"
+                    size="md"
                   >
                     <Mail className="h-4 w-4" />
                     Send Email
-                  </a>
+                  </Button>
                 </div>
               )}
             </ScrollReveal>

@@ -34,18 +34,18 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {/* Content */}
         <div className="p-8">
           {/* Category */}
-          <span className="label mb-2 block">{project.category}</span>
+          <span className="label mb-3 block">{project.category}</span>
 
           {/* Title */}
-          <h3 className="heading-sm mb-3 transition-colors duration-[var(--transition-fast)] group-hover:text-primary">
+          <h3 className="heading-sm mb-4 transition-colors duration-[var(--transition-fast)] group-hover:text-primary">
             {project.title}
           </h3>
 
           {/* Description */}
-          <p className="body-sm mb-4 line-clamp-2">{project.description}</p>
+          <p className="body-sm mb-6 line-clamp-2">{project.description}</p>
 
           {/* Technologies */}
-          <div className="mb-4 flex flex-wrap gap-2">
+          <div className="mb-6 flex flex-wrap gap-3">
             {project.technologies.slice(0, 4).map((tech) => (
               <TechBadge key={tech} name={tech} />
             ))}

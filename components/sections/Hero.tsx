@@ -34,13 +34,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="label mb-6 inline-block"
+              className="label mb-8 inline-block"
             >
               {portfolio.personal.role}
             </motion.span>
 
             {/* Headline */}
-            <h1 className="heading-xl mb-6">
+            <h1 className="heading-xl mb-8">
               Building beautiful mobile experiences with{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Flutter
@@ -49,7 +49,7 @@ export default function Hero() {
             </h1>
 
             {/* Subtitle */}
-            <p className="body-lg mb-8 max-w-xl">
+            <p className="body-lg mb-10 max-w-xl">
               {portfolio.personal.bio}
             </p>
 

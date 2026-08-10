@@ -40,17 +40,17 @@ export default function ExperienceItem({
           </span>
 
           {/* Role & Company */}
-          <h3 className="heading-sm mb-1">{experience.role}</h3>
-          <p className="body-md mb-3 text-muted">{experience.company}</p>
+          <h3 className="heading-sm mb-2">{experience.role}</h3>
+          <p className="body-md mb-4 text-muted">{experience.company}</p>
 
           {/* Description */}
           {experience.description && (
-            <p className="body-md mb-4">{experience.description}</p>
+            <p className="body-md mb-6">{experience.description}</p>
           )}
 
           {/* Responsibilities */}
           {experience.responsibilities.length > 0 && (
-            <ul className="mb-4 space-y-2">
+            <ul className="mb-6 space-y-3">
               {experience.responsibilities.map((item, i) => (
                 <li key={i} className="body-sm flex items-start gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
