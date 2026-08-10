@@ -19,7 +19,7 @@ export default function Services() {
           description="I offer a range of mobile development services to help bring your ideas to life."
         />
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {portfolio.services.map((service, index) => (
             <ScrollReveal key={service.title} delay={index * 0.1}>
               <ServiceCard service={service} />

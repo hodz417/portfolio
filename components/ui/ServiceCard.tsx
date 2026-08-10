@@ -27,7 +27,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const Icon = iconMap[service.icon] || Code;
 
   return (
-    <article className="card p-6 transition-all duration-[var(--transition-base)] hover:border-primary/30 group">
+    <article className="card p-8 transition-all duration-[var(--transition-base)] hover:border-primary/30 group">
       {/* Icon */}
       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[var(--radius-md)] bg-primary-muted transition-colors duration-[var(--transition-base)] group-hover:bg-primary/20">
         <Icon className="h-6 w-6 text-primary" />

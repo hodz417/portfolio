@@ -21,7 +21,7 @@ export default function Projects() {
           description="A collection of projects that showcase my skills and passion for mobile development."
         />
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-10 md:grid-cols-2">
           {displayProjects.map((project, index) => (
             <ScrollReveal key={project.slug} delay={index * 0.1}>
               <ProjectCard project={project} index={index} />

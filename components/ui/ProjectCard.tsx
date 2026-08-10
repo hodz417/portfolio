@@ -32,7 +32,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-8">
           {/* Category */}
           <span className="label mb-2 block">{project.category}</span>
 
