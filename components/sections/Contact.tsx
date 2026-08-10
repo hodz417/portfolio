@@ -6,7 +6,8 @@ import { portfolio } from "@/config/portfolio";
 import SectionHeader from "@/components/ui/SectionHeader";
 import ContactForm from "@/components/ui/ContactForm";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import Button from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/Button";
+import Link from "next/link";
 import { isValidUrl } from "@/lib/utils";
 
 // ─── Contact Section ─────────────────────────────────────────────────────────
@@ -130,14 +131,13 @@ export default function Contact() {
                     Prefer email? Send me a message and I&apos;ll get back to you
                     as soon as possible.
                   </p>
-                  <Button
+                  <Link
                     href={`mailto:${portfolio.personal.email}`}
-                    variant="primary"
-                    size="md"
+                    className={buttonVariants({ variant: "default", size: "default" })}
                   >
-                    <Mail className="h-4 w-4" />
+                    <Mail className="h-4 w-4 mr-2" />
                     Send Email
-                  </Button>
+                  </Link>
                 </div>
               )}
             </ScrollReveal>

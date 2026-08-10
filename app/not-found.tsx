@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowLeft, Home } from "lucide-react";
-import Button from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/Button";
+import Link from "next/link";
 
 // ─── Global 404 Page ─────────────────────────────────────────────────────────
 
@@ -48,18 +49,17 @@ export default function NotFound() {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-4"
         >
-          <Button variant="primary" size="lg" href="/">
-            <Home className="h-4 w-4" />
+          <Link className={buttonVariants({ variant: "default", size: "lg" })} href="/">
+            <Home className="h-4 w-4 mr-2" />
             Go Home
-          </Button>
-          <Button
-            variant="secondary"
-            size="lg"
+          </Link>
+          <button
+            className={buttonVariants({ variant: "secondary", size: "lg" })}
             onClick={() => window.history.back()}
           >
-            <ArrowLeft className="h-4 w-4" />
+            <ArrowLeft className="h-4 w-4 mr-2" />
             Go Back
-          </Button>
+          </button>
         </motion.div>
       </div>
 

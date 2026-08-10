@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono, Geist } from "next/font/google";
 import { portfolio } from "@/config/portfolio";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
 
 // ─── Font Loading (next/font for performance) ───────────────────────────────
 
@@ -63,7 +67,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={cn(inter.variable, spaceGrotesk.variable, jetbrainsMono.variable, "font-sans", geist.variable)}
     >
       <body>
         <a href="#main-content" className="skip-to-content">

@@ -15,8 +15,8 @@ import {
 } from "lucide-react";
 import { portfolio } from "@/config/portfolio";
 import { GithubIcon } from "@/components/ui/SocialIcons";
-import Button from "@/components/ui/Button";
-import TechBadge from "@/components/ui/TechBadge";
+import { buttonVariants } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/badge";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -100,18 +100,18 @@ export default async function ProjectPage({ params }: PageProps) {
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4">
                 {project.github && (
-                  <Button variant="secondary" size="lg" href={project.github} external>
-                    <GithubIcon className="h-5 w-5" />
+                  <a className={buttonVariants({ variant: "outline", size: "lg" })} href={project.github} target="_blank" rel="noopener noreferrer">
+                    <GithubIcon className="h-5 w-5 mr-2" />
                     View Code
-                    <ArrowUpRight className="h-4 w-4" />
-                  </Button>
+                    <ArrowUpRight className="h-4 w-4 ml-2" />
+                  </a>
                 )}
                 {project.demo && (
-                  <Button variant="primary" size="lg" href={project.demo} external>
-                    <ExternalLink className="h-4 w-4" />
+                  <a className={buttonVariants({ variant: "default", size: "lg" })} href={project.demo} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="h-4 w-4 mr-2" />
                     Live Demo
-                    <ArrowUpRight className="h-4 w-4" />
-                  </Button>
+                    <ArrowUpRight className="h-4 w-4 ml-2" />
+                  </a>
                 )}
               </div>
             </ScrollReveal>
@@ -281,11 +281,13 @@ export default async function ProjectPage({ params }: PageProps) {
               <div className="mx-auto max-w-4xl">
                 <ScrollReveal>
                   <h2 className="heading-md mb-6">Technologies Used</h2>
-                  <div className="flex flex-wrap gap-3">
-                    {project.technologies.map((tech) => (
-                      <TechBadge key={tech} name={tech} variant="primary" size="md" />
-                    ))}
-                  </div>
+                  <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <Badge key={tech} variant="secondary">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
                 </ScrollReveal>
               </div>
             </div>
@@ -301,9 +303,9 @@ export default async function ProjectPage({ params }: PageProps) {
                   <h2 className="heading-sm mb-2">Interested in working together?</h2>
                   <p className="body-sm">Let&apos;s discuss your next project.</p>
                 </div>
-                <Button variant="primary" size="lg" href="/#contact">
+                <Link className={buttonVariants({ variant: "default", size: "lg" })} href="/#contact">
                   Get in Touch
-                </Button>
+                </Link>
               </div>
             </ScrollReveal>
           </div>

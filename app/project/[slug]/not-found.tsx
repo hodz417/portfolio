@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowLeft, FolderSearch } from "lucide-react";
-import Button from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/Button";
+import Link from "next/link";
 
 // ─── Project Not Found ──────────────────────────────────────────────────────
 
@@ -45,13 +46,13 @@ export default function ProjectNotFound() {
           transition={{ delay: 0.3, duration: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-4"
         >
-          <Button variant="primary" size="lg" href="/#projects">
-            <ArrowLeft className="h-4 w-4" />
+          <Link className={buttonVariants({ variant: "default", size: "lg" })} href="/#projects">
+            <ArrowLeft className="h-4 w-4 mr-2" />
             View All Projects
-          </Button>
-          <Button variant="secondary" size="lg" href="/">
+          </Link>
+          <Link className={buttonVariants({ variant: "secondary", size: "lg" })} href="/">
             Go Home
-          </Button>
+          </Link>
         </motion.div>
       </div>
     </main>

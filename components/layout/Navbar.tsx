@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { portfolio } from "@/config/portfolio";
-import Button from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/Button";
 
 // ─── Navbar Component ────────────────────────────────────────────────────────
 
@@ -115,9 +115,8 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Button
-            variant="outline"
-            size="sm"
+          <a
+            className={buttonVariants({ variant: "outline", size: "sm" })}
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
@@ -125,7 +124,7 @@ export default function Navbar() {
             }}
           >
             Let&apos;s Talk
-          </Button>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -175,10 +174,8 @@ export default function Navbar() {
                 </motion.a>
               ))}
               <div className="mt-4 px-4">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="w-full"
+                <a
+                  className={buttonVariants({ variant: "default", size: "lg", className: "w-full" })}
                   href="#contact"
                   onClick={(e) => {
                     e.preventDefault();
@@ -186,7 +183,7 @@ export default function Navbar() {
                   }}
                 >
                   Let&apos;s Talk
-                </Button>
+                </a>
               </div>
             </motion.nav>
           </motion.div>

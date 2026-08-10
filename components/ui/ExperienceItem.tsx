@@ -1,7 +1,7 @@
 "use client";
 
 import { Experience } from "@/types/portfolio";
-import TechBadge from "./TechBadge";
+import { Badge } from "@/components/ui/badge";
 import ScrollReveal from "./ScrollReveal";
 
 // ─── Experience Item Component ───────────────────────────────────────────────
@@ -64,7 +64,9 @@ export default function ExperienceItem({
           {experience.technologies.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {experience.technologies.map((tech) => (
-                <TechBadge key={tech} name={tech} />
+                <Badge key={tech} variant="secondary">
+                  {tech}
+                </Badge>
               ))}
             </div>
           )}

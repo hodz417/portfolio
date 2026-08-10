@@ -2,7 +2,8 @@
 
 import { Service } from "@/types/portfolio";
 import { Smartphone, Palette, Plug, Flame, Code, Database, Globe, Layers } from "lucide-react";
-import TechBadge from "./TechBadge";
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 // ─── Icon Map ────────────────────────────────────────────────────────────────
 
@@ -27,24 +28,32 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const Icon = iconMap[service.icon] || Code;
 
   return (
-    <article className="card p-8 transition-all duration-[var(--transition-base)] hover:border-primary/30 group">
-      {/* Icon */}
-      <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-[var(--radius-md)] bg-primary-muted transition-colors duration-[var(--transition-base)] group-hover:bg-primary/20">
-        <Icon className="h-6 w-6 text-primary" />
-      </div>
+    <Card className="group transition-all duration-[var(--transition-base)] hover:border-primary/30 bg-surface">
+      <CardHeader>
+        {/* Icon */}
+        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-colors duration-[var(--transition-base)] group-hover:bg-primary/20">
+          <Icon className="h-6 w-6 text-primary" />
+        </div>
 
-      {/* Title */}
-      <h3 className="heading-sm mb-4">{service.title}</h3>
+        {/* Title */}
+        <CardTitle>{service.title}</CardTitle>
+      </CardHeader>
 
-      {/* Description */}
-      <p className="body-sm mb-6">{service.description}</p>
+      <CardContent>
+        {/* Description */}
+        <p className="text-muted-foreground text-sm">{service.description}</p>
+      </CardContent>
 
-      {/* Technologies */}
-      <div className="flex flex-wrap gap-3">
-        {service.technologies.map((tech) => (
-          <TechBadge key={tech} name={tech} size="sm" />
-        ))}
-      </div>
-    </article>
+      <CardFooter>
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-2">
+          {service.technologies.map((tech) => (
+            <Badge key={tech} variant="secondary">
+              {tech}
+            </Badge>
+          ))}
+        </div>
+      </CardFooter>
+    </Card>
   );
 }

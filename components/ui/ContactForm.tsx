@@ -2,7 +2,9 @@
 
 import { useState, FormEvent } from "react";
 import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
-import Button from "./Button";
+import { Button } from "./Button";
+import { Input } from "./input";
+import { Textarea } from "./textarea";
 import { portfolio } from "@/config/portfolio";
 
 // ─── Contact Form Component ─────────────────────────────────────────────────
@@ -95,13 +97,13 @@ export default function ContactForm() {
         <label htmlFor="contact-name" className="body-sm mb-2 block font-medium text-text">
           Name
         </label>
-        <input
+        <Input
           id="contact-name"
           type="text"
           placeholder="Your name"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className={`${inputStyles} ${errors.name ? "border-red-400" : ""}`}
+          className={errors.name ? "border-red-400 focus-visible:ring-red-400" : ""}
           disabled={formState === "loading"}
         />
         {errors.name && (
@@ -114,13 +116,13 @@ export default function ContactForm() {
         <label htmlFor="contact-email" className="body-sm mb-2 block font-medium text-text">
           Email
         </label>
-        <input
+        <Input
           id="contact-email"
           type="email"
           placeholder="your@email.com"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className={`${inputStyles} ${errors.email ? "border-red-400" : ""}`}
+          className={errors.email ? "border-red-400 focus-visible:ring-red-400" : ""}
           disabled={formState === "loading"}
         />
         {errors.email && (
@@ -133,13 +135,13 @@ export default function ContactForm() {
         <label htmlFor="contact-message" className="body-sm mb-2 block font-medium text-text">
           Message
         </label>
-        <textarea
+        <Textarea
           id="contact-message"
           placeholder="Tell me about your project..."
           rows={5}
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className={`${inputStyles} resize-none ${errors.message ? "border-red-400" : ""}`}
+          className={`resize-none ${errors.message ? "border-red-400 focus-visible:ring-red-400" : ""}`}
           disabled={formState === "loading"}
         />
         {errors.message && (
@@ -156,15 +158,15 @@ export default function ContactForm() {
       )}
 
       {/* Submit */}
-      <Button type="submit" variant="primary" size="lg" className="w-full" disabled={formState === "loading"}>
+      <Button type="submit" variant="default" size="lg" className="w-full" disabled={formState === "loading"}>
         {formState === "loading" ? (
           <>
-            <Loader2 className="h-4 w-4 animate-spin" />
+            <Loader2 className="h-4 w-4 animate-spin mr-2" />
             Sending...
           </>
         ) : (
           <>
-            <Send className="h-4 w-4" />
+            <Send className="h-4 w-4 mr-2" />
             Send Message
           </>
         )}

@@ -4,7 +4,7 @@ import { ArrowUpRight, Star, Code2 } from "lucide-react";
 import { GithubIcon } from "@/components/ui/SocialIcons";
 import { portfolio } from "@/config/portfolio";
 import SectionHeader from "@/components/ui/SectionHeader";
-import Button from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/Button";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 // ─── GitHub / Open Source Section ────────────────────────────────────────────
@@ -72,16 +72,16 @@ export default function GitHubSection() {
         {/* GitHub CTA */}
         <ScrollReveal>
           <div className="flex justify-center">
-            <Button
-              variant="secondary"
-              size="lg"
+            <a
+              className={buttonVariants({ variant: "outline", size: "lg" })}
               href={github.profile}
-              external
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <GithubIcon className="h-5 w-5" />
+              <GithubIcon className="h-5 w-5 mr-2" />
               View GitHub Profile
-              <ArrowUpRight className="h-4 w-4" />
-            </Button>
+              <ArrowUpRight className="h-4 w-4 ml-2" />
+            </a>
           </div>
         </ScrollReveal>
       </div>

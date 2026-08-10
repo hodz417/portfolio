@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Project } from "@/types/portfolio";
-import TechBadge from "./TechBadge";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 // ─── Project Card Component ─────────────────────────────────────────────────
 
@@ -16,9 +17,9 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link href={`/project/${project.slug}`} className="group block">
-      <article className="card overflow-hidden transition-all duration-[var(--transition-base)] hover:border-border-hover">
+      <Card className="group overflow-hidden transition-all duration-[var(--transition-base)] hover:border-border-hover border-transparent bg-surface">
         {/* Project Image */}
-        <div className="relative aspect-[16/10] overflow-hidden bg-surface">
+        <div className="relative aspect-[16/10] overflow-hidden">
           <Image
             src={project.image}
             alt={`${project.title} — ${project.category}`}
@@ -28,26 +29,31 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             loading="lazy"
           />
           {/* Overlay on hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-bg/60 via-transparent to-transparent opacity-0 transition-opacity duration-[var(--transition-base)] group-hover:opacity-100" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 transition-opacity duration-[var(--transition-base)] group-hover:opacity-100" />
         </div>
 
-        {/* Content */}
-        <div className="p-8">
+        <CardHeader className="pb-3">
           {/* Category */}
-          <span className="label mb-3 block">{project.category}</span>
+          <span className="label text-primary">{project.category}</span>
 
           {/* Title */}
-          <h3 className="heading-sm mb-4 transition-colors duration-[var(--transition-fast)] group-hover:text-primary">
+          <CardTitle className="transition-colors duration-[var(--transition-fast)] group-hover:text-primary">
             {project.title}
-          </h3>
+          </CardTitle>
+        </CardHeader>
 
+        <CardContent className="pb-4">
           {/* Description */}
-          <p className="body-sm mb-6 line-clamp-2">{project.description}</p>
+          <p className="text-muted-foreground text-sm line-clamp-2">{project.description}</p>
+        </CardContent>
 
+        <CardFooter className="flex flex-col items-start gap-4 pb-6">
           {/* Technologies */}
-          <div className="mb-6 flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2">
             {project.technologies.slice(0, 4).map((tech) => (
-              <TechBadge key={tech} name={tech} />
+              <Badge key={tech} variant="secondary">
+                {tech}
+              </Badge>
             ))}
           </div>
 
@@ -56,8 +62,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             View Case Study
             <ArrowRight className="h-4 w-4" />
           </span>
-        </div>
-      </article>
+        </CardFooter>
+      </Card>
     </Link>
   );
 }

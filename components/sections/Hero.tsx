@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { ArrowDown, ExternalLink } from "lucide-react";
 import { portfolio } from "@/config/portfolio";
-import Button from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/Button";
+import Link from "next/link";
 
 // ─── Hero Section ────────────────────────────────────────────────────────────
 
@@ -60,14 +61,14 @@ export default function Hero() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="flex flex-wrap gap-4"
             >
-              <Button variant="primary" size="lg" href="#projects">
+              <Link className={buttonVariants({ variant: "default", size: "lg" })} href="#projects">
                 View My Work
-                <ArrowDown className="h-4 w-4" />
-              </Button>
-              <Button variant="secondary" size="lg" href="#contact">
+                <ArrowDown className="h-4 w-4 ml-2" />
+              </Link>
+              <Link className={buttonVariants({ variant: "outline", size: "lg" })} href="#contact">
                 Let&apos;s Talk
-                <ExternalLink className="h-4 w-4" />
-              </Button>
+                <ExternalLink className="h-4 w-4 ml-2" />
+              </Link>
             </motion.div>
           </motion.div>
 
